@@ -20,8 +20,8 @@ const zero = document.querySelector('.zero');
 
 // Sign buttons
 const percent = document.querySelector('.percent');
-const clearEntry = document.querySelector('.ce');
-const clear = document.querySelector('.c');
+const clearEntry = document.querySelector('.clear-entry');
+const clear = document.querySelector('.clear');
 const undo = document.querySelector('.undo');
 const reciprocal = document.querySelector('.reciprocal');
 const escalate = document.querySelector('.escalate');
@@ -33,3 +33,41 @@ const add = document.querySelector('.add');
 const plusOrMinus = document.querySelector('.plus-or-minus');
 const comma = document.querySelector('.comma');
 const equal = document.querySelector('.equal');
+
+// Result
+const record = document.querySelector('.record');
+const currentResult = document.querySelector('.current-result');
+
+let result;
+
+// addEventListeners on figures
+one.addEventListener('click', addNumber);
+two.addEventListener('click', addNumber);
+three.addEventListener('click', addNumber);
+four.addEventListener('click', addNumber);
+five.addEventListener('click', addNumber);
+six.addEventListener('click', addNumber);
+seven.addEventListener('click', addNumber);
+eight.addEventListener('click', addNumber);
+nine.addEventListener('click', addNumber);
+zero.addEventListener('click', addNumber);
+
+clear.addEventListener('click', clearResult);
+
+function addNumber(e) {
+    result = e.target.textContent;
+    if ((currentResult.textContent == 0)) {
+        if (result == 0) currentResult.textContent = 0;
+        if (result != 0) {
+            currentResult.textContent = null;
+            currentResult.textContent += result;
+        }
+    }
+    else {
+        currentResult.textContent += result;
+    }
+}
+
+function clearResult() {
+    currentResult.textContent = 0;
+}
