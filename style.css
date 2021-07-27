@@ -36,6 +36,7 @@ header {
     font-size: 2rem;
     text-align: right;
     border-radius: 1rem;
+    border: 15px solid rgb(20, 20, 20);
 }
 
 .result .record {
