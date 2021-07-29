@@ -36,6 +36,7 @@ const equal = document.querySelector('.equal');
 
 // Result
 const record = document.querySelector('.record');
+const signOfOperation = document.querySelector('.sign-of-operation');
 const currentResult = document.querySelector('.current-result');
 
 let result = 0;
@@ -63,6 +64,7 @@ escalate.addEventListener('click', escalateNumber);
 squareRoot.addEventListener('click', squareRootBtn);
 divide.addEventListener('click', divideNumber);
 equal.addEventListener('click', amountTo);
+multiply.addEventListener('click', multiplyNumber);
 
 // Result 
 function addNumber(e) {
@@ -128,9 +130,18 @@ function squareRootBtn() {
 
 // Divide btn
 function divideNumber() {
-    record.innerHTML = currentResult.textContent + ` <i class="fas fa-divide"></i>`;
+    record.textContent = currentResult.textContent;
+    signOfOperation.innerHTML = ` <i class="fas fa-divide"></i>`;
     currentResult.textContent = 0;
     return typeOfOperation = 'divide';
+}
+
+// Multiply btn
+function multiplyNumber() {
+    record.textContent = currentResult.textContent;
+    signOfOperation.textContent = ' x';
+    currentResult.textContent = 0;
+    return typeOfOperation = 'multiply';
 }
 
 // Equal btn 
@@ -139,6 +150,13 @@ function amountTo() {
         case 'divide':
             currentResult.textContent = record.textContent / currentResult.textContent;
             record.textContent = null;
+            signOfOperation.textContent = null;
+            break;
+
+        case 'multiply':
+            currentResult.textContent = record.textContent * currentResult.textContent;
+            record.textContent = null;
+            signOfOperation.textContent = null;
             break;
         default:
             console.log('naura');

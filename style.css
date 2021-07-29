@@ -39,10 +39,22 @@ header {
     border: 15px solid rgb(20, 20, 20);
 }
 
-.result .record {
+.record-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(114, 114, 110);
+    font-size: 1.5rem;
+}
+
+.record-box .record {
+    margin: 0 .4rem;
+}
+
+/* .result .record {
     font-size: 1.5rem;
     color: rgb(114, 114, 110);
-}
+} */
 
 .memory {
     display: grid;
