@@ -58,6 +58,7 @@ clearEntry.addEventListener('click', clearLastResult);
 undo.addEventListener('click', removeLastSign);
 percent.addEventListener('click', percentOfNumber);
 reciprocal.addEventListener('click', reciprocalOfNumber);
+escalate.addEventListener('click', escalateNumber);
 
 // Result 
 function addNumber(e) {
@@ -105,4 +106,9 @@ function percentOfNumber() {
 // Reciprocal btn
 function reciprocalOfNumber() {
     currentResult.textContent = 1 / currentResult.textContent;
+}
+
+// escalate btn 
+function escalateNumber() {
+    currentResult.textContent *= currentResult.textContent;
 }
