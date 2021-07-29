@@ -52,10 +52,12 @@ eight.addEventListener('click', addNumber);
 nine.addEventListener('click', addNumber);
 zero.addEventListener('click', addNumber);
 
+// Events on buttons except figures
 clear.addEventListener('click', clearResult);
 clearEntry.addEventListener('click', clearLastResult);
 undo.addEventListener('click', removeLastSign);
 percent.addEventListener('click', percentOfNumber);
+reciprocal.addEventListener('click', reciprocalOfNumber);
 
 // Result 
 function addNumber(e) {
@@ -98,4 +100,9 @@ function percentOfNumber() {
     else {
         currentResult.textContent /= 100;
     }
+}
+
+// Reciprocal btn
+function reciprocalOfNumber() {
+    currentResult.textContent = 1 / currentResult.textContent;
 }
