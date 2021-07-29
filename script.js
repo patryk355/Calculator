@@ -59,6 +59,7 @@ undo.addEventListener('click', removeLastSign);
 percent.addEventListener('click', percentOfNumber);
 reciprocal.addEventListener('click', reciprocalOfNumber);
 escalate.addEventListener('click', escalateNumber);
+squareRoot.addEventListener('click', squareRootBtn);
 
 // Result 
 function addNumber(e) {
@@ -111,4 +112,13 @@ function reciprocalOfNumber() {
 // escalate btn 
 function escalateNumber() {
     currentResult.textContent *= currentResult.textContent;
+}
+
+// square root btn
+function squareRootBtn() {
+    if (currentResult.textContent < 0) {
+        currentResult.textContent = `ERROR`;
+    } else {
+        currentResult.textContent = Math.sqrt(currentResult.textContent);
+    }
 }
