@@ -39,6 +39,7 @@ const record = document.querySelector('.record');
 const currentResult = document.querySelector('.current-result');
 
 let result = 0;
+let typeOfOperation;
 
 // addEventListeners on figures
 one.addEventListener('click', addNumber);
@@ -60,6 +61,8 @@ percent.addEventListener('click', percentOfNumber);
 reciprocal.addEventListener('click', reciprocalOfNumber);
 escalate.addEventListener('click', escalateNumber);
 squareRoot.addEventListener('click', squareRootBtn);
+divide.addEventListener('click', divideNumber);
+equal.addEventListener('click', amountTo);
 
 // Result 
 function addNumber(e) {
@@ -109,16 +112,35 @@ function reciprocalOfNumber() {
     currentResult.textContent = 1 / currentResult.textContent;
 }
 
-// escalate btn 
+// Escalate btn 
 function escalateNumber() {
     currentResult.textContent *= currentResult.textContent;
 }
 
-// square root btn
+// Square root btn
 function squareRootBtn() {
     if (currentResult.textContent < 0) {
         currentResult.textContent = `ERROR`;
     } else {
         currentResult.textContent = Math.sqrt(currentResult.textContent);
+    }
+}
+
+// Divide btn
+function divideNumber() {
+    record.innerHTML = currentResult.textContent + ` <i class="fas fa-divide"></i>`;
+    currentResult.textContent = 0;
+    return typeOfOperation = 'divide';
+}
+
+// Equal btn 
+function amountTo() {
+    switch (typeOfOperation) {
+        case 'divide':
+            currentResult.textContent = record.textContent / currentResult.textContent;
+            record.textContent = null;
+            break;
+        default:
+            console.log('naura');
     }
 }
