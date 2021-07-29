@@ -38,7 +38,7 @@ const equal = document.querySelector('.equal');
 const record = document.querySelector('.record');
 const currentResult = document.querySelector('.current-result');
 
-let result;
+let result = 0;
 
 // addEventListeners on figures
 one.addEventListener('click', addNumber);
@@ -53,7 +53,10 @@ nine.addEventListener('click', addNumber);
 zero.addEventListener('click', addNumber);
 
 clear.addEventListener('click', clearResult);
+clearEntry.addEventListener('click', clearLastResult);
+undo.addEventListener('click', removeLastSign);
 
+// Result 
 function addNumber(e) {
     result = e.target.textContent;
     if ((currentResult.textContent == 0)) {
@@ -68,6 +71,22 @@ function addNumber(e) {
     }
 }
 
+// C btn
 function clearResult() {
+    record.textContent = '';
     currentResult.textContent = 0;
+}
+
+// CE btn
+function clearLastResult() {
+    currentResult.textContent = 0;
+}
+
+// Undo btn
+function removeLastSign() {
+    if (currentResult.textContent == 0) return;
+    else if (currentResult.textContent != 0) {
+        currentResult.textContent /= 10;
+        currentResult.textContent = parseInt(currentResult.textContent);
+    }
 }
