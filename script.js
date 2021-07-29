@@ -65,6 +65,9 @@ squareRoot.addEventListener('click', squareRootBtn);
 divide.addEventListener('click', divideNumber);
 equal.addEventListener('click', amountTo);
 multiply.addEventListener('click', multiplyNumber);
+subtract.addEventListener('click', difference);
+add.addEventListener('click', sum);
+
 
 // Result 
 function addNumber(e) {
@@ -144,6 +147,22 @@ function multiplyNumber() {
     return typeOfOperation = 'multiply';
 }
 
+// Subtract btn 
+function difference() {
+    record.textContent = currentResult.textContent;
+    signOfOperation.textContent = ' -';
+    currentResult.textContent = 0;
+    return typeOfOperation = 'difference';
+}
+
+// Add btn 
+function sum() {
+    record.textContent = currentResult.textContent;
+    signOfOperation.textContent = ' +';
+    currentResult.textContent = 0;
+    return typeOfOperation = 'sum';
+}
+
 // Equal btn 
 function amountTo() {
     switch (typeOfOperation) {
@@ -152,9 +171,18 @@ function amountTo() {
             record.textContent = null;
             signOfOperation.textContent = null;
             break;
-
         case 'multiply':
             currentResult.textContent = record.textContent * currentResult.textContent;
+            record.textContent = null;
+            signOfOperation.textContent = null;
+            break;
+        case 'difference':
+            currentResult.textContent = record.textContent - currentResult.textContent;
+            record.textContent = null;
+            signOfOperation.textContent = null;
+            break;
+        case 'sum':
+            currentResult.textContent = parseFloat(record.textContent) + parseFloat(currentResult.textContent);
             record.textContent = null;
             signOfOperation.textContent = null;
             break;
