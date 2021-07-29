@@ -55,6 +55,7 @@ zero.addEventListener('click', addNumber);
 clear.addEventListener('click', clearResult);
 clearEntry.addEventListener('click', clearLastResult);
 undo.addEventListener('click', removeLastSign);
+percent.addEventListener('click', percentOfNumber);
 
 // Result 
 function addNumber(e) {
@@ -88,5 +89,13 @@ function removeLastSign() {
     else if (currentResult.textContent != 0) {
         currentResult.textContent /= 10;
         currentResult.textContent = parseInt(currentResult.textContent);
+    }
+}
+
+// Percent btn 
+function percentOfNumber() {
+    if (currentResult.textContent <= 0) return;
+    else {
+        currentResult.textContent /= 100;
     }
 }
