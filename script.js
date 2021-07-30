@@ -67,6 +67,7 @@ equal.addEventListener('click', amountTo);
 multiply.addEventListener('click', multiplyNumber);
 subtract.addEventListener('click', difference);
 add.addEventListener('click', sum);
+plusOrMinus.addEventListener('click', changeSign);
 
 
 // Result 
@@ -189,4 +190,9 @@ function amountTo() {
         default:
             console.log('naura');
     }
+}
+
+// Plus or minus btn
+function changeSign() {
+    currentResult.textContent *= -1;
 }
