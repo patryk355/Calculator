@@ -68,11 +68,11 @@ multiply.addEventListener('click', multiplyNumber);
 subtract.addEventListener('click', difference);
 add.addEventListener('click', sum);
 plusOrMinus.addEventListener('click', changeSign);
-
+comma.addEventListener('click', addComma);
 
 // Result 
 function addNumber(e) {
-    result = e.target.textContent;
+    result = parseFloat(e.target.textContent);
     if ((currentResult.textContent == 0)) {
         if (result == 0) currentResult.textContent = 0;
         if (result != 0) {
@@ -195,4 +195,12 @@ function amountTo() {
 // Plus or minus btn
 function changeSign() {
     currentResult.textContent *= -1;
+}
+
+// Comma btn
+function addComma() {
+    if (currentResult.textContent.indexOf('.') != -1) return;
+    else {
+        currentResult.textContent += '.';
+    }
 }
