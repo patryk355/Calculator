@@ -41,6 +41,7 @@ const currentResult = document.querySelector('.current-result');
 
 let result = 0;
 let typeOfOperation;
+let endOperation = false;
 
 // addEventListeners on figures
 one.addEventListener('click', addNumber);
@@ -73,16 +74,23 @@ comma.addEventListener('click', addComma);
 // Result 
 function addNumber(e) {
     result = parseFloat(e.target.textContent);
-    if ((currentResult.textContent == 0)) {
-        if (result == 0) currentResult.textContent = 0;
-        if (result != 0) {
-            currentResult.textContent = null;
+    if (endOperation == true) {
+        currentResult.textContent = 0;
+        currentResult.textContent = result;
+        endOperation = false;
+    } else {
+        if ((currentResult.textContent == 0)) {
+            if (result == 0) currentResult.textContent = 0;
+            if (result != 0) {
+                currentResult.textContent = null;
+                currentResult.textContent += result;
+            }
+        }
+        else {
             currentResult.textContent += result;
         }
     }
-    else {
-        currentResult.textContent += result;
-    }
+
 }
 
 // C btn
@@ -136,7 +144,8 @@ function squareRootBtn() {
 function divideNumber() {
     record.textContent = currentResult.textContent;
     signOfOperation.innerHTML = ` <i class="fas fa-divide"></i>`;
-    currentResult.textContent = 0;
+    // currentResult.textContent = 0;
+    endOperation = true;
     return typeOfOperation = 'divide';
 }
 
@@ -144,7 +153,8 @@ function divideNumber() {
 function multiplyNumber() {
     record.textContent = currentResult.textContent;
     signOfOperation.textContent = ' x';
-    currentResult.textContent = 0;
+    // currentResult.textContent = 0;
+    endOperation = true;
     return typeOfOperation = 'multiply';
 }
 
@@ -152,7 +162,8 @@ function multiplyNumber() {
 function difference() {
     record.textContent = currentResult.textContent;
     signOfOperation.textContent = ' -';
-    currentResult.textContent = 0;
+    // currentResult.textContent = 0;
+    endOperation = true;
     return typeOfOperation = 'difference';
 }
 
@@ -160,7 +171,8 @@ function difference() {
 function sum() {
     record.textContent = currentResult.textContent;
     signOfOperation.textContent = ' +';
-    currentResult.textContent = 0;
+    // currentResult.textContent = 0;
+    endOperation = true;
     return typeOfOperation = 'sum';
 }
 
@@ -168,27 +180,34 @@ function sum() {
 function amountTo() {
     switch (typeOfOperation) {
         case 'divide':
-            currentResult.textContent = record.textContent / currentResult.textContent;
+            if (currentResult.textContent == 0) currentResult.textContent = 'Cannot be divided by zero';
+            else {
+                currentResult.textContent = record.textContent / currentResult.textContent;
+            }
             record.textContent = null;
             signOfOperation.textContent = null;
+            endOperation = true;
             break;
         case 'multiply':
             currentResult.textContent = record.textContent * currentResult.textContent;
             record.textContent = null;
             signOfOperation.textContent = null;
+            endOperation = true;
             break;
         case 'difference':
             currentResult.textContent = record.textContent - currentResult.textContent;
             record.textContent = null;
             signOfOperation.textContent = null;
+            endOperation = true;
             break;
         case 'sum':
             currentResult.textContent = parseFloat(record.textContent) + parseFloat(currentResult.textContent);
             record.textContent = null;
             signOfOperation.textContent = null;
+            endOperation = true;
             break;
         default:
-            console.log('naura');
+            break;
     }
 }
 
