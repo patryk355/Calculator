@@ -78,6 +78,17 @@ header {
     background-color: rgb(140, 196, 30);
 }
 
+.inactive {
+    color: grey;
+    background-color: #BABEBE;
+    cursor: unset;
+}
+
+.inactive:hover {
+    background-color: #BABEBE;
+    cursor: unset;
+}
+
 .buttons {
     width: 100%;
     height: 35rem;
