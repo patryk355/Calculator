@@ -1,11 +1,11 @@
 // Memory buttons
 const mc = document.querySelector('.mc');
-const mr = document.querySelector('.mr');
 const mPlus = document.querySelector('.m-plus');
 const mMinus = document.querySelector('.m-minus');
 const ms = document.querySelector('.ms');
 const showMemory = document.querySelector('.show-memory');
-const memoryStore = document.querySelector('.memory-store')
+const memoryStore = document.querySelector('.memory-store');
+const currentMemory = document.querySelector('.current-memory');
 
 // Figure buttons
 const one = document.querySelector('.one');
@@ -43,7 +43,8 @@ const currentResult = document.querySelector('.current-result');
 let result = 0;
 let typeOfOperation;
 let endOperation = false;
-let memory;
+let memory = 0;
+
 // addEventListeners on figures
 one.addEventListener('click', addNumber);
 two.addEventListener('click', addNumber);
@@ -78,9 +79,6 @@ mMinus.addEventListener('click', subtractInMemory);
 ms.addEventListener('click', storeMemory);
 if (!mc.classList.contains('inactive')) {
     mc.addEventListener('click', clearMemory);
-}
-if (!mr.classList.contains('inactive')) {
-    mr.addEventListener('click', clearMemory);
 }
 if (!showMemory.classList.contains('inactive')) {
     showMemory.addEventListener('click', clearMemory);
@@ -241,23 +239,28 @@ function addComma() {
 
 // M+ btn
 function addInMemory() {
-    console.log('dodane');
+    mc.classList.remove('inactive');
+    showMemory.classList.remove('inactive');
+    memory += currentResult.textContent;
 }
 
 // M- btn
 function subtractInMemory() {
-    console.log('odjęte');
+    mc.classList.remove('inactive');
+    showMemory.classList.remove('inactive');
+    memory -= currentResult.textContent;
 }
 
 // MS btn 
 function storeMemory() {
     mc.classList.remove('inactive');
-    mr.classList.remove('inactive');
     showMemory.classList.remove('inactive');
     memory = currentResult.textContent;
 }
 
 // MC btn
 function clearMemory() {
-    console.log('usuniete');
+    memory = 0;
+    mc.classList.add('inactive');
+    showMemory.classList.add('inactive');
 }

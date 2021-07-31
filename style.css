@@ -59,7 +59,7 @@ header {
 
 .memory {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: 1rem auto;
 }
 
@@ -91,7 +91,7 @@ header {
 }
 
 .memory-store {
-    /* display: none; */
+    display: none;
     background-color: #BABEBE;
     color: #000;
     width: 30%;
