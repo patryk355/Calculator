@@ -5,6 +5,7 @@ const mPlus = document.querySelector('.m-plus');
 const mMinus = document.querySelector('.m-minus');
 const ms = document.querySelector('.ms');
 const showMemory = document.querySelector('.show-memory');
+const memoryStore = document.querySelector('.memory-store')
 
 // Figure buttons
 const one = document.querySelector('.one');
@@ -42,7 +43,7 @@ const currentResult = document.querySelector('.current-result');
 let result = 0;
 let typeOfOperation;
 let endOperation = false;
-
+let memory;
 // addEventListeners on figures
 one.addEventListener('click', addNumber);
 two.addEventListener('click', addNumber);
@@ -71,6 +72,21 @@ add.addEventListener('click', sum);
 plusOrMinus.addEventListener('click', changeSign);
 comma.addEventListener('click', addComma);
 
+// Events on memory buttons
+mPlus.addEventListener('click', addInMemory);
+mMinus.addEventListener('click', subtractInMemory);
+ms.addEventListener('click', storeMemory);
+if (!mc.classList.contains('inactive')) {
+    mc.addEventListener('click', clearMemory);
+}
+if (!mr.classList.contains('inactive')) {
+    mr.addEventListener('click', clearMemory);
+}
+if (!showMemory.classList.contains('inactive')) {
+    showMemory.addEventListener('click', clearMemory);
+}
+
+
 // Result 
 function addNumber(e) {
     result = parseFloat(e.target.textContent);
@@ -90,7 +106,6 @@ function addNumber(e) {
             currentResult.textContent += result;
         }
     }
-
 }
 
 // C btn
@@ -222,4 +237,27 @@ function addComma() {
     else {
         currentResult.textContent += '.';
     }
+}
+
+// M+ btn
+function addInMemory() {
+    console.log('dodane');
+}
+
+// M- btn
+function subtractInMemory() {
+    console.log('odjęte');
+}
+
+// MS btn 
+function storeMemory() {
+    mc.classList.remove('inactive');
+    mr.classList.remove('inactive');
+    showMemory.classList.remove('inactive');
+    memory = currentResult.textContent;
+}
+
+// MC btn
+function clearMemory() {
+    console.log('usuniete');
 }

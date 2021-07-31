@@ -21,6 +21,7 @@ header {
     background-color: rgb(20, 20, 20);
     color: #fff;
     border-radius: 1rem;
+    overflow: hidden;
 }
 
 .result {
@@ -87,6 +88,20 @@ header {
 .inactive:hover {
     background-color: #BABEBE;
     cursor: unset;
+}
+
+.memory-store {
+    /* display: none; */
+    background-color: #BABEBE;
+    color: #000;
+    width: 30%;
+    height: 30rem;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 1rem;
 }
 
 .buttons {
