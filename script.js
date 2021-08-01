@@ -243,7 +243,7 @@ function addComma() {
 function addInMemory() {
     mc.classList.remove('inactive');
     showMemory.classList.remove('inactive');
-    memory += currentResult.textContent;
+    memory = parseFloat(currentResult.textContent) + parseFloat(memory);
 }
 
 // M- btn
