@@ -77,12 +77,13 @@ comma.addEventListener('click', addComma);
 mPlus.addEventListener('click', addInMemory);
 mMinus.addEventListener('click', subtractInMemory);
 ms.addEventListener('click', storeMemory);
-if (!mc.classList.contains('inactive')) {
-    mc.addEventListener('click', clearMemory);
-}
-if (!showMemory.classList.contains('inactive')) {
-    showMemory.addEventListener('click', clearMemory);
-}
+// if (mc.classList.contains('inactive') == false) {
+mc.addEventListener('click', clearMemory);
+// console.log('mc')
+// }
+// if (!showMemory.classList.contains('inactive')) {
+showMemory.addEventListener('click', showMemoryStore);
+// }
 
 
 // Result 
@@ -110,6 +111,7 @@ function addNumber(e) {
 function clearResult() {
     record.textContent = '';
     currentResult.textContent = 0;
+    signOfOperation.textContent = '';
 }
 
 // CE btn
@@ -260,7 +262,22 @@ function storeMemory() {
 
 // MC btn
 function clearMemory() {
-    memory = 0;
-    mc.classList.add('inactive');
-    showMemory.classList.add('inactive');
+    if (!mc.classList.contains('inactive')) {
+        memory = 0;
+        mc.classList.add('inactive');
+        showMemory.classList.add('inactive');
+    } else {
+        return;
+    }
+
+}
+
+// M btn (showMemory)
+function showMemoryStore() {
+    if (!showMemory.classList.contains('inactive')) {
+        memoryStore.classList.toggle('active');
+        currentMemory.textContent = memory;
+    } else {
+        return;
+    }
 }
