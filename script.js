@@ -77,13 +77,9 @@ comma.addEventListener('click', addComma);
 mPlus.addEventListener('click', addInMemory);
 mMinus.addEventListener('click', subtractInMemory);
 ms.addEventListener('click', storeMemory);
-// if (mc.classList.contains('inactive') == false) {
 mc.addEventListener('click', clearMemory);
-// console.log('mc')
-// }
-// if (!showMemory.classList.contains('inactive')) {
 showMemory.addEventListener('click', showMemoryStore);
-// }
+
 
 
 // Result 
@@ -159,7 +155,6 @@ function squareRootBtn() {
 function divideNumber() {
     record.textContent = currentResult.textContent;
     signOfOperation.innerHTML = ` <i class="fas fa-divide"></i>`;
-    // currentResult.textContent = 0;
     endOperation = true;
     return typeOfOperation = 'divide';
 }
@@ -168,7 +163,6 @@ function divideNumber() {
 function multiplyNumber() {
     record.textContent = currentResult.textContent;
     signOfOperation.textContent = ' x';
-    // currentResult.textContent = 0;
     endOperation = true;
     return typeOfOperation = 'multiply';
 }
@@ -177,7 +171,6 @@ function multiplyNumber() {
 function difference() {
     record.textContent = currentResult.textContent;
     signOfOperation.textContent = ' -';
-    // currentResult.textContent = 0;
     endOperation = true;
     return typeOfOperation = 'difference';
 }
@@ -186,7 +179,6 @@ function difference() {
 function sum() {
     record.textContent = currentResult.textContent;
     signOfOperation.textContent = ' +';
-    // currentResult.textContent = 0;
     endOperation = true;
     return typeOfOperation = 'sum';
 }
