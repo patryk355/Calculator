@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 300px;
 }
 
 header {
@@ -51,11 +52,6 @@ header {
 .record-box .record {
     margin: 0 .4rem;
 }
-
-/* .result .record {
-    font-size: 1.5rem;
-    color: rgb(114, 114, 110);
-} */
 
 .memory {
     display: grid;
@@ -143,4 +139,18 @@ header {
 
 .buttons .equal:hover {
     background-color: rgb(101, 133, 33);
+}
+
+@media (max-width: 576px) {
+    .calc {
+        width: 100%;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .calc {
+        width: 60%;
+    }
 }
